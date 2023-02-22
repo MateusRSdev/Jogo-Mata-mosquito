@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    background-image: url(imagens/bg.jpg);
+    background-size: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: url(imagens/mataMosca.png) 30 30, auto;
+}
+
+html {
+    height: 100%;
+}
+
+
+
+.mosquito1 {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    animation: surgir .5s linear;
+    padding: 25px;
+}
+
+.mosquito2 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    animation: surgir .5s linear;
+    padding: 20px;
+
+}
+
+.mosquito3 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    animation: surgir .5s linear;
+    padding: 20px;
+
+}
+
+.mosquito1:hover,.mosquito2:hover,.mosquito3:hover{
+    outline: 3px solid #ff000041;
+    border-radius: 5px;
+
+}
+/* ***********mennsagem inicial***************** */
+
+.regras{
+    position: absolute;
+    display: none;
+    width: 450px;
+    color: #fff;
+    border: 3px solid #19d719;
+    border-radius: 20px;
+    background-color: #272727;
+    height: 700px;
+    z-index: 3;
+   text-align: justify;
+    padding: 10px;
+}
+.regras>p,.regras>h2{
+    margin: 20px;
+}
+.regras>h2{
+    text-align: center;
+}
+.continuar{
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 150px;
+    height: 40px;
+    background-color: #e7d214;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ************************************ANIMACOES************************************* */
+.surgir {
+    animation: surgir 0.1s linear;
+}
+
+@keyframes surgir {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+.animacao {
+    
+    animation: mosca 1s linear;
+}
+
+@keyframes mosca {
+    0% {outline: none;
+        transform: scaleX(1);
+    }
+
+    10% {scale: 1.5;}
+
+    25% {transform: scaleX(-1);}
+
+    50% {scale: 1;
+        transform: scaleX(1);
+    }
+
+    75% { transform: scaleX(-1);}
+
+    100% {outline: none;
+        scale: 0;
+        transform: scaleX(1);
+    }
+}
+
+.atacar {
+    animation: atacar .2s linear;
+}
+
+@keyframes atacar {
+    100% {
+        opacity: 0;
+        scale: 3;
+    }
+}
+
+.lifeAnimation {
+    transition: all .3s;
+    animation: coracao .3s;
+}
+
+@keyframes coracao {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 0.9;
+    }
+}
+
+.sacudir{
+    animation: sacudir .3s linear;
+}
+.tremer{
+    animation: tremer .3s linear infinite;
+    box-shadow: 0 0 40px 0 red;
+}
+@keyframes tremer {
+    25%{transform: translateX(2px);color: #ffffff;}
+    50%{transform: translateX(-2px);color: rgb(255, 255, 255);}
+    75%{transform: translateX(2px);color: #000000;}
+    100%{transform: translateX(-2px);color: #000;}
+}
+
+@keyframes sacudir{
+    25%{transform: rotate(-20deg);}
+    50%{transform: rotate(20deg);}
+    75%{transform: rotate(-20deg);}
+    100%{transform: rotate(20deg);}
+}
+
+
+.ladoA {
+    transform: scaleX(1);
+}
+
+.ladoB {
+    transform: scaleX(-1);
+}
+
+.painel {
+    position: absolute;
+    width: 190px;
+    bottom: 0;
+    border-radius: 0 10px 0 0;
+    box-shadow: 0 0 10px 0 #fff;
+    background-color: #fff;
+    opacity: 0, 8;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}
+
+.vidas {
+    float: left;
+}
+
+
+#contadorX{
+    width: 40px;
+    float: right;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    height: 30px;
+}
+
+
+.tempo {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.centralizar {
+    width: 500px;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+
+    flex-direction: column;
+}
+
+.btn {
+    text-align: center;
+    margin: 20px ;
+    text-decoration: none;
+    border: none;
+    color: #000000;
+    width: 200px;
+    padding: 15px;
+    border-radius: 50px;
+    background-color: #e7d214;
+    outline: 3px solid #000000;
+    box-shadow: 0 0 20px 0 #000000;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: all .5s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 40px 0 #000000;
+    scale: 1.1;
+}
+
+.btn2 {
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+}
+/***************** game over ****************/
+
+body.gameover {
+    background-image: url(imagens/bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+/* *******************inicio***************** */
+
+#dificuldade {
+    width: 190px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 0 10px;
+    font-size: 16px;
+    border: 2px solid green;
+    background-color: #09e209;
+    box-shadow: 0 0 30px 0 #19d719;
+}
+
+.opcao {
+    background-color: #77e714;
+
+}
+
+.titulo {
+    text-align: center;
+    color: #fffafa;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: #00000071;
+    border-radius: 10px;
+}
+
+/************************** moedas****************** */
+div.moedas {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+div.moedas>img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+#coins {
+    color: #1a1a1a;
+}
+/* *******medidor de pontuacao********** */
+.pontuacao{
+    position: absolute;
+    background-color: #00000087;
+    padding: 2px;
+    padding-left: 4px;
+    color: #fff;
+    border-radius: 3px;
+    left: 10px;
+    top: 10px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.pontuacao>span{ 
+    box-shadow:2px 2px 0px 0px rgb(195, 195, 195);
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* **********medidor de combo **************/
+.combo{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 5px;
+    height: 22px;
+    letter-spacing: 1px;
+    padding-right: 65px;
+    font-weight: 900;
+    border-radius: 0 4px  4px 0;
+    font-size: 20px;
+    background-color: rgb(228, 221, 221);
+    border: 2px solid #a6a7ad;
+    border-left: none;
+}
+
+#medidorDeCombo{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: absolute;
+    display: block;
+    font-weight: 100;
+    font-size: 25px;
+    transition: all .5s;
+    background: #0de209;
+    outline: 3px solid #008000;
+    padding: 10px;
+    text-align: center;
+    scale: 0.8;
+    top: -10px;
+    left: 80px;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    
+}
+
+/* **********************LOJA*************************** */
+.loja {
+    position: absolute;
+    bottom: 20%;
+    left: 100%;
+    width: 80px;
+    height: 40px;
+    background-color: #e7d214;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.vidasLoja {
+    height: 100px;
+    width: 90%;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    background-color: #272727;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+#loja {
+    width: 25%;
+    position: absolute;
+    left: 45px;
+    height: 600px;
+    background-color: #3c3c3c;
+    outline: 5px solid #0daf0d;
+    border-radius: 10px;
+    display: none;
+}
+
+#loja::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    bottom: 65px;
+    width: 15px;
+    height: 30px;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.btnL {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #0daf0d;
+    border-radius: 2px;
+    border: 2px solid #179c17;
+}
+
+.itemloja {
+    background-color: #272727;
+    height: 70px;
+    margin: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    width: 95%;
+}
+
+.imagemL {
+    margin: 5px;
+    width: 60px;
+    background-color: #000000;
+    border-radius: 5px;
+    height: 60px;
+}
+
+.imagemC {
+    margin: 5px;
+    width: 180px;
+    margin: 5px;
+    background-color: #1d1d1d;
+    border-radius: 5px;
+    height: 90px;
+}
+
+.imagemL>img {
+    width: 100%;
+    height: 100%;
+}
+
+.imagemC>img {
+    width: 100%;
+    height: 100%;
+}
+
+.coinL {
+    width: 20px;
+    margin-left: 4px;
+}
+
+.none {
+    display: none;
+}
+
+/* vitoria e derrota */
+
+#derrota {
+    display: none;
+}
+
+#vitoria {
+    display: none;
+}

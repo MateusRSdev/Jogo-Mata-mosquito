@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="icon" href="imagens/mosca.png">
+    <link rel="stylesheet" href="estilo.css">
+    
+</head>
+
+<body onresize="ajustarTamanhoTela()" style="overflow: hidden;">
+    <div class="pontuacao">
+        Pontuação: <span id="pontuacao">1000</span>
+    </div>
+    <div class="combo">
+      Combo <span id="medidorDeCombo">10</span>
+    </div>
+    <div class="moedas" id="body">
+        <span id="coins">10</span>
+        <img src="imagens/dollar.png" alt="">
+    </div>
+
+    <div class="Final">
+        <div id="vitoria" class="centralizar">
+            <img src="imagens/vitoria.png" alt="">
+            <button class="btn btn2" onclick="restart()" >Restart</button>
+        </div>
+        <div id="derrota" class="centralizar">
+            <img src="imagens/game_over.png" alt="">
+            <button class="btn btn2" onclick="restart()">Restart</button>
+        </div>
+    </div>
+
+    <div class="painel">
+        <div class="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png" alt="">
+            <img id="v2" src="imagens/coracao_cheio.png" alt="">
+            <img id="v3" src="imagens/coracao_cheio.png" alt="">
+        </div>
+        <div id="contadorX" class="contadorX">+<span id="VidasEX"></span></div>
+        <div id="divTempo" class="tempo">
+            tempo restante: <span id="tempo"></span>
+        </div>
+    </div>
+    
+</body>
+<script src="jogo.js"></script>
+    <script src="script.js"></script>
+</html>

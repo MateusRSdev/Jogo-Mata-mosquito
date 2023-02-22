@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mata Mosquito - Home</title>
+    <link rel="icon" href="imagens/mosca.png">
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body class="gameover" id="body">
+    <div class="pontuacao">
+        Melhor pontuação: <span id="pontuacao"></span>
+    </div>
+    <div class="moedas">
+        <span id="coins">10</span>
+        <img ondblclick="coins += 1000" src="imagens/dollar.png" alt="">
+    </div>
+
+    <div class="regras" id="regras">
+        <h2>Bem vindo ao jogo</h2>
+        <p>Olá eu sou Mateus o criador desse jogo. Ele foi um projeto de um curso que eu estava fazendo, pórem quando eu terminei o jogo, ele estava
+            muito simples e achei q seria legal dar uma incrementada nesse projeto, em que eu adicionei varias funções como  o sistema de pontuação e combo, o sistema
+            de moedas, a loja, um segundo modo de jogo, personalização de cursor, entre outras funcionalidades...
+        </p>
+        <p>O objetivo do jogo é matar os mosquitos (que aparecem aleatóriamente na tela) antes que eles te ataquem. O jogo acaba quando o tempo chega a 0 ou suas vidas acabam (dependendo do modo).</p>
+        <p>O sistema de pontuacao é relativo ao valor de combo (que varia de 0 a 10), ou seja quanto maior o combo maior a pontuação. Quando o combo chegar a 10 você 
+            ganha 25% a mais de pontos, e moedas extras para cada mosquito.
+        </p>
+        <p>
+            Você sempre começa com 3 vidas para cada jogo, mas podem ser compradas vidas extras na loja. Toda vez que você estiver com 1 vida restante todo o dano será descontado nas suas vidas extras (caso vc tenha).
+        </p>
+        <p>OBS: Dependendo do hardware, internet, e browser q você esteja usando pode haver lentidão na hora de carregar a página do jogo então espere alguns segundos e recarregue-a para eliminar travamentos.</p>
+        <p>Bom Jogo😄</p>
+        <button class="continuar" onclick="tutorial()">Continuar</button>
+    </div>
+
+    <div class="centralizar">
+
+        <img src="imagens/game.png" alt="">
+        <h2 class="titulo" ondblclick="limpar()">selecione a dificuldade</h2>
+        <select name="" id="dificuldade">
+
+            <option class="opcao" value="f">Fácil 🥱</option>
+            <option class="opcao" value="n">Normal 😏</option>
+            <option class="opcao" value="d">Difícil 😲</option>
+            <option class="opcao" value="D">Dark Souls 😈</option>
+        </select>
+        <button class="loja" onclick="loja()" id="btnLoja">LOJA</button>
+        <div class="botoes">
+            <button class="btn" onclick="iniciarJogo('classico')">Modo Clássico</button>
+            <button class="btn" onclick="iniciarJogo('infinito')">Modo Infinito</button>
+        </div>
+    </div>
+    <div id="loja">
+
+        <div class="itemloja">
+            <div class="imagemL">
+                <img src="imagens/mataMosca.png" alt="">
+            </div>
+            <p>Mata-mosca</p>
+            <button id="MM" class="btnL" onclick="aplicarCursor('mataMosca','MM')">Usar</button>
+        </div>
+
+        <div class="itemloja">
+            <div class="imagemL">
+                <img src="imagens/jornal.png" alt="">
+            </div>
+            <p>Jornal</p>
+            <button id="J" class="btnL" onclick="comprar('jornal', 400,'J','JC')">400 <img class="coinL"
+                    src="imagens/dollar.png" alt=""> </button>
+            <button id="JC" class="btnL none" onclick="aplicarCursor('jornal','JC')">Usar</button>
+        </div>
+
+        <div class="itemloja">
+            <div class="imagemL">
+                <img src="imagens/raquete.png" alt="">
+            </div>
+            <p>Raquete</p>
+            <button id="R" class="btnL" onclick="comprar('raquete', 900,'R','RC')">900<img class="coinL"
+                    src="imagens/dollar.png" alt=""> </button>
+            <button id="RC" name="loja" class="btnL none" onclick="aplicarCursor('raquete','RC')">Usar</button>
+        </div>
+
+        <div class="itemloja">
+            <div class="imagemL">
+                <img src="imagens/panela.png" alt="">
+            </div>
+            <p>Panela</p>
+            <button id="P" class="btnL" onclick="comprar('panela', 1600,'P','PC')">1600<img class="coinL"
+                    src="imagens/dollar.png" alt=""> </button>
+            <button id="PC" class="btnL none" onclick="aplicarCursor('panela','PC')">Usar</button>
+        </div>
+
+        <div class="itemloja">
+            <div class="imagemL">
+                <img src="imagens/inseticida.png" alt="">
+            </div>
+            <p>Inseticida</p>
+            <button id="I" class="btnL" onclick="comprar('inseticida', 3000,'I','IC')">3000<img class="coinL"
+                    src="imagens/dollar.png" alt=""> </button>
+            <button id="IC" class="btnL none" onclick="aplicarCursor('inseticida','IC')">Usar</button>
+        </div>
+
+        <div class="vidasLoja">
+            <div class="imagemC">
+                <img src="imagens/coracoes.png" alt="">
+            </div>
+            <p>Vida Extra +<span id="vidasEX">1</span></p>
+            <button id="CV" class="btnL" onclick="comprarVida()">50<img class="coinL" src="imagens/dollar.png" alt="">
+            </button>
+
+        </div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+
+</html>
